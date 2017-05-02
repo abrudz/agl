@@ -1,3 +1,3 @@
 # AGL
 APL Golfing Library
-To include, run `(⍎⊃2 ⎕FIX'file://path/AGL.dyalog').('#'⎕NS⎕NL-⍳9)`
+To include, run `⎕FIX'file:///opt/agl/AGL.dyalog'`
