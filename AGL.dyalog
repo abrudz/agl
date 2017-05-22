@@ -1,14 +1,17 @@
 ﻿:Namespace AGL
     
+    a←819⌶⎕A
+    W←'AEIOU'
+    C←⎕A~W
+    c←a~w
+    H←16↑⎕D,⎕A
+    h←819⌶H
     _←{11::t⊣(∊t)←((~0⌈ø)(819⌶)⊢)¨∊t←⍵ ⋄ ⍺←⊢ ⋄ ⍺-⍵} ⍝ swap case
     Ä←{⍵ ⍺⍺ ⍵⍵ ⍵} ⍝ fork
     á←{⍎'⍵[⍋↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍋⍵ sorts ⍵ up - even nested
     à←{⍎'⍵[⍒↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍒⍵ sorts ⍵ down - even nested
     ä←{⍺←⊢ ⋄ ⍺ (⍺⍺ ⍵⍵) ⍵}                              ⍝ atop
     A←⎕NAPPEND
-    a←819⌶⎕A
-    c←a~w
-    C←⎕A~W
     ç←{⍺←⊢ ⋄ 0::⍺⊂⍵⊣⎕ML←3 ⋄ ⍺⊆⍵}
     Ç←{⍺←⊢ ⋄ 11::⍺{⍺←' ' ⋄ ''≡⍺:⍵ ⋄ (1↓⍺)∘∇¨⍵{⎕ML←3 ⋄⍺⊆⍵}⍨⍵≠⊃⍺}⍵ ⋄ r←⍺÷⍵}   ⍝ char: cut at ⍺[1] (default=space) then cut each at ⍺[2] ...
     C←⎕NCREATE
@@ -25,8 +28,6 @@
     F←{⍺←⊢ ⋄ ⊃⌽⍺⎕VFI ⍵}
     G←⎕NGET
     G←⎕NREAD
-    H←16↑⎕D,⎕A
-    h←819⌶H
     ï←{⍎⍺,'←⍵'}                                              ⍝ 'name'← returns ⍵ but assign to the name in ⍺
     î←{⍺←⊢ ⋄ 0::⍵/⍳⍴⍵ ⋄ ⍺⍸⍵}
     í←{11::1(819⌶)⍵ ⋄ ⍺←⊢ ⋄ ⍺⌈⍵}                ⍝ uppercase chars
@@ -69,7 +70,6 @@
     V←⊃⎕VFI
     Vf←//⎕VFI
     w←819⌶W
-    W←'AEIOU'
     X←⎕XML
     Xs←⎕NEXISTS
     Ý←{⍺←2 ⋄ ⍵*÷⍺}                                               ⍝ sqrt
