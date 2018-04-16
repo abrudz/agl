@@ -1,49 +1,46 @@
 ﻿:Namespace AGL
-    
-    a←819⌶⎕A
-    W←'AEIOU'
-    C←⎕A~W
-    c←a~w
-    H←16↑⎕D,⎕A
-    h←819⌶H
+    a←819⌶⎕A        ⍝ lower abc
+    w←819⌶W←'AEIOU' ⍝ voWels
+    k←819⌶K←⎕A~W          ⍝ Consonants
+    h←819⌶H←16↑⎕D,⎕A   ⍝ Hex digits
     _←{11::t⊣(∊t)←((~0⌈ø)(819⌶)⊢)¨∊t←⍵ ⋄ ⍺←⊢ ⋄ ⍺-⍵} ⍝ swap case
     Ä←{⍵ ⍺⍺ ⍵⍵ ⍵} ⍝ fork
     á←{⍎'⍵[⍋↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍋⍵ sorts ⍵ up - even nested
     à←{⍎'⍵[⍒↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍒⍵ sorts ⍵ down - even nested
-    ä←{⍺←⊢ ⋄ ⍺ (⍺⍺ ⍵⍵) ⍵}                              ⍝ atop
+    ä←{⍺←⊢ ⋄ ⍺⍺ ⍺ ⍵⍵ ⍵} ⍝ atop
     A←⎕NAPPEND
-    ç←{⍺←⊢ ⋄ 0::⍺⊂⍵⊣⎕ML←3 ⋄ ⍺⊆⍵}
-    Ç←{⍺←⊢ ⋄ 11::⍺{⍺←' ' ⋄ ''≡⍺:⍵ ⋄ (1↓⍺)∘∇¨⍵{⎕ML←3 ⋄⍺⊆⍵}⍨⍵≠⊃⍺}⍵ ⋄ r←⍺÷⍵}   ⍝ char: cut at ⍺[1] (default=space) then cut each at ⍺[2] ...
+    ç←{(⊂⍺),⊆⍵} ⍝ link (connect)
+    Ç←{⍺←⊢ ⋄ 11::⍺{⍺←' ' ⋄ ''≡⍺:⍵ ⋄ (1↓⍺)∘∇¨⍵⊆⍨⍵≠⊃⍺}⍵ ⋄ r←⍺÷⍵}   ⍝ char: cut at ⍺[1] (default=space) then cut each at ⍺[2] ...
     C←⎕NCREATE
-    Ð←{⍺←⊢ ⋄ ⍺ (⍺⍺⌸⍵⍵) ⍵}
-    ð←{⍺←⊢ ⋄ ⍺ (⍺⍺⌺⍵⍵) ⍵}
+    ⍝Ð
+    ⍝ð
     D←⎕NDELETE
     é←{⍺/⍵}
     è←{⍺\⍵}
     É←{⍺⌿⍵}
     È←{⍺⍀⍵}
-    ë←{⍺←⊢ ⋄ ⍺ (⍺⍺⍠⍵⍵) ⍵}
-    ê←{6::⊃0⍴⊂⍵ ⋄ ⍺⍷⍵}   ⍝ monad:type
+    ⍝ë
+    ê←{⊃0⍴⊂⍵}   ⍝ monad:type
     E←⎕NERASE
-    F←{⍺←⊢ ⋄ ⊃⌽⍺⎕VFI ⍵}
+    F←{⍺←⊢ ⋄ ⊃⌽⍺ ⎕VFI ⍵}
     G←⎕NGET
     G←⎕NREAD
     ï←{⍎⍺,'←⍵'}                                              ⍝ 'name'← returns ⍵ but assign to the name in ⍺
-    î←{⍺←⊢ ⋄ 0::⍵/⍳⍴⍵ ⋄ ⍺⍸⍵}
+    ⍝î
     í←{11::1(819⌶)⍵ ⋄ ⍺←⊢ ⋄ ⍺⌈⍵}                ⍝ uppercase chars
     ì←{11::819⌶⍵ ⋄ ⍺←⊢ ⋄ ⍺⌊⍵}                   ⍝ lowercase chars
-    Î←⍣¯1
-    Í←⍣≡
-    Ì←⍣≢
-    Ï←⍣2
+    Î←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣¯1) ⍵} ⍝ Inverse
+    Í←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣⍣≡) ⍵}  ⍝ power-Infinity
+    Ì←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣⍣≢) ⍵}  ⍝ until Indifferent
+    Ï←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣⍣2) ⍵}  ⍝ twIce
     I←⎕NINFO
     M←⎕MKDIR
     ⎕FX'r←N' 'r←⎕NS⍬'
     Ñ←{⍺←2 ⋄ ×≡⍺:⍉⍺⊤⍵ ⋄ ⍉⍵⊤⍨⍺/⍨1⌈⌈⍺⍟⌈/⍵} ⍝ default is base 2 + no transpose
     ñ←{⍺←2 ⋄ ⍺⊥⍉⍵}                      ⍝ default is base 2 + no transpose
-    ö←{⍺←⊢ ⋄ ⍺ (⍺⍺⍤⍵⍵) ⍵}
+    ⍝ö
     Ö←{⍺←⊢ ⋄ ⍺ ⍺⍺⍣(⍵⍵ ⍵)⊢⍵}             ⍝ repeat g(⍵) times
-    ò←{⍺←⍵ ⋄ ⍺ ∘.⍺⍺ ⍵}   ⍝ normal monadic operator for ∘.
+    ò←{⍺←⍵ ⋄ ⍺∘.⍺⍺ ⍵}   ⍝ normal monadic operator for ∘.
     Ø←{⍺←0 ⋄ s←⍺⊣⍵}      ⍝ shy
     ø←{11::((⊢=1∘(819⌶))-⊢=819⌶)⍵ ⋄ ⍺←⊢ ⋄ ⍺×⍵}       ⍝ case: ¯1=lower 0=\W 1=upper
     P←⎕NPUT
@@ -64,12 +61,11 @@
     Tp←⎕TPUT
     Tr←⎕TREQ
     Ts←⎕TNUMS
-    Ü←{0=⎕NC'⍺':⍵⍵{11::⍺⍺ ⍵ ⋄ ⍺⍺⍣¯1⊢⍵}⍺⍺ ⍵⍵ ⍵ ⋄ ⍵⍵{11::⍺⍺ ⍵ ⋄ ⍺⍺⍣¯1⊢⍵}(⍵⍵ ⍺) ⍺⍺ ⍵⍵ ⍵}     ⍝ under
+    Ü←{0=⎕NC'⍺':⍵⍵{11::⍺⍺ ⍵ ⋄ ⍺⍺⍣¯1⊢⍵}⍺⍺ ⍵⍵ ⍵ ⋄ ⍵⍵{11::⍺⍺ ⍵ ⋄ ⍺⍺⍣¯1⊢⍵}(⍵⍵ ⍺)⍺⍺ ⍵⍵ ⍵}     ⍝ under
     U←⎕UCS
     Ut←⎕NUNTIE
     V←⊃⎕VFI
     Vf←//⎕VFI
-    w←819⌶W
     X←⎕XML
     Xs←⎕NEXISTS
     Ý←{⍺←2 ⋄ ⍵*÷⍺}                                               ⍝ sqrt
