@@ -1,9 +1,9 @@
 ﻿:Namespace AGL
-    a←819⌶⎕A        ⍝ lower abc
-    w←819⌶W←'AEIOU' ⍝ voWels
-    k←819⌶K←⎕A~W          ⍝ Consonants
-    h←819⌶H←16↑⎕D,⎕A   ⍝ Hex digits
-    _←{11::t⊣(∊t)←((~0⌈ø)(819⌶)⊢)¨∊t←⍵ ⋄ ⍺←⊢ ⋄ ⍺-⍵} ⍝ swap case
+    a←⎕C ⎕A        ⍝ lower abc
+    w←⎕C W←'AEIOU' ⍝ voWels
+    k←⎕C K←⎕A~W          ⍝ Consonants
+    h←⎕C H←16↑⎕D,⎕A   ⍝ Hex digits
+    _←{11::t⊣(∊t)←((~0⌈ø)⎕C⊢)¨∊t←⍵ ⋄ ⍺←⊢ ⋄ ⍺-⍵} ⍝ swap case
     Ä←{⍵ ⍺⍺ ⍵⍵ ⍵} ⍝ fork
     á←{⍎'⍵[⍋↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍋⍵ sorts ⍵ up - even nested
     à←{⍎'⍵[⍒↑⍣(|≡⍵)⊢⍵',']',⍨';'⍴⍨¯1+≢⍴⍵}                      ⍝ 0⍒⍵ sorts ⍵ down - even nested
@@ -27,8 +27,8 @@
     G←⎕NREAD
     ï←{⍎⍺,'←⍵'}                                              ⍝ 'name'← returns ⍵ but assign to the name in ⍺
     ⍝î
-    í←{11::1(819⌶)⍵ ⋄ ⍺←⊢ ⋄ ⍺⌈⍵}                ⍝ uppercase chars
-    ì←{11::819⌶⍵ ⋄ ⍺←⊢ ⋄ ⍺⌊⍵}                   ⍝ lowercase chars
+    í←{11::1⎕C⍵ ⋄ ⍺←⊢ ⋄ ⍺⌈⍵}                ⍝ uppercase chars
+    ì←{11::¯1⎕C⍵ ⋄ ⍺←⊢ ⋄ ⍺⌊⍵}                   ⍝ lowercase chars
     Î←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣¯1) ⍵} ⍝ Inverse
     Í←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣⍣≡) ⍵}  ⍝ power-Infinity
     Ì←{⍺←⊢ ⋄ ⍺ (⍺⍺⍣⍣≢) ⍵}  ⍝ until Indifferent
@@ -42,7 +42,7 @@
     Ö←{⍺←⊢ ⋄ ⍺ ⍺⍺⍣(⍵⍵ ⍵)⊢⍵}             ⍝ repeat g(⍵) times
     ò←{⍺←⍵ ⋄ ⍺∘.⍺⍺ ⍵}   ⍝ normal monadic operator for ∘.
     Ø←{⍺←0 ⋄ s←⍺⊣⍵}      ⍝ shy
-    ø←{11::((⊢=1∘(819⌶))-⊢=819⌶)⍵ ⋄ ⍺←⊢ ⋄ ⍺×⍵}       ⍝ case: ¯1=lower 0=\W 1=upper
+    ø←{11::((⊢=1∘⎕C)-⊢=⎕C)⍵ ⋄ ⍺←⊢ ⋄ ⍺×⍵}       ⍝ case: ¯1=lower 0=\W 1=upper
     P←⎕NPUT
     Ps←⎕NPARTS
     R←⎕NREPLACE
